@@ -1,4 +1,16 @@
-<form action="/answer" data-turbo="false">
-  <input type="text" name="question">
-  <input type="submit" value="Ask!">
-</form>
+<div class="container mt-4">
+  <h1>
+    Stupid Coaching
+  </h1>
+  <div id="Help" class="form-text mb-2">
+    <h5>
+      Ask your coach anything:
+    </h5>
+  </div>
+  <form action="/answer" method="get" data-turbo="false" class="d-flex">
+    <div class="input-group mb-3"> 
+      <input type="text" name="question" class="form-control" placeholder="Type your question here ..." aria-label="Type your question here ..." aria-describedby="button-addon2">
+      <button class="btn btn-primary ms-2" type="submit" id="button_addon2">Ask</button>
+    </div>
+  </form>
+</div>

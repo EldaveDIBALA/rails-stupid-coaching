@@ -1,13 +1,23 @@
-<h1>
-  Réponse à votre question :
-</h1>
+<div class="container mt-4">
 
-<p>
-  La réponse à la question "<%= @question %>" est donnée ci-après.
-</p>
+  <h1>Stupid Coaching</h1>
 
-<p>
-  La réponse du Coach est la suivante : "<%= @reponse %>"
-</p>
+  <div class="container mt-4 text-gray">
 
-<%= link_to 'Poser une nouvelle question !?', '/ask', class: "btn btn-primary" %>
+    <div class="bg-light alert alert-light alert-dimissible fade show" role="alert" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+      <p><%= @question %></p>
+      <p><i>-You</i></p>
+    </div>
+
+    <div class="alert alert-warning d-flex align-items-start" role="alert" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); background-color:  #FFFF99; border: 1px solid #FFD700;">
+      <div>
+        <h5><strong><%= @reponse %></strong></h5>
+        <p><i>-Your coach</i></p>
+      </div>
+    </div>
+
+  </div>
+
+  <%= link_to 'Ask a new question', '/ask', class: "btn btn-outline-primary" %>
+
+</div>

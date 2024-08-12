@@ -1,13 +1,11 @@
 require "application_system_test_case"
 
 class QuestionsTest < ApplicationSystemTestCase
-  setup do 
-    test "visiting the Ask page" do
-      visit ask_url
-      assert_selector "h1", text: "Stupid Coaching"
-      # Vérifier que la page Ask est affichée
-      assert_text "Ask your coach anything"
-    end
+  setup do
+    visit ask_url
+    assert_selector "h1", text: "Stupid Coaching"
+    # Vérifier que la page Ask est affichée
+    assert_text "Ask your coach anything:"
   end
 
   teardown do
@@ -50,19 +48,19 @@ class QuestionsTest < ApplicationSystemTestCase
   end
 
   test "user can submit anything and receive the coach indifference response." do
-    # Vérifier que le champ de saisie peut être remplie avec n'importe quel contenu
+  #   # Vérifier que le champ de saisie peut être remplie avec n'importe quel contenu
     assert_selector "input[name='question']", visible: true
     dynamic_text = generate_dynamic_text
     fill_in "question", with: dynamic_text
 
-    # Vérifier que le le bouton Ask est cliquable
+  #   # Vérifier que le le bouton Ask est cliquable
     assert_selector "button", text: "Ask", visible: true
     click_on "Ask"
 
-    # Vérifier que l'on est redirigé vers la page Answer
+  #   # Vérifier que l'on est redirigé vers la page Answer
     assert_equal current_url.split('?').first, answer_url
 
-    # Vérifier que la réponse du Coach est conforme
+  # #   # Vérifier que la réponse du Coach est conforme
     assert_text "-Your coach"
     assert_text "I don't care, get dressed and go to work!"
   end
@@ -89,8 +87,8 @@ class QuestionsTest < ApplicationSystemTestCase
 
   def generate_dynamic_text
     texts = [
-      "Hello Coach, what's up?",
-      "Lorem ipsum dolor sit amet"
+      "Hello Coach!",
+      "Lorem ipsum dolor sit amet."
     ]
     texts.sample
   end
